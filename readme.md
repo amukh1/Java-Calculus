@@ -1,5 +1,24 @@
+# Java-Calculus
+
+This is a Java library for calculus. It is a work in progress.
+
+<!-- Checklist with all the features -->
+
+## Features
+<!-- How to add a checklist github copilot?? -->
+- [x] Limits
+- [x] Derivatives
+- [x] Implicit Differentiation / Related Rates
+- [x] Sir Issac Newton's Law of Cooling
+- [x] Integration
+- [x] Linear Approximation
+
+## Usage
+
+```java
 import java.util.function.Function;
-// Programmed by amukh1#9613
+import Java-Calculus.Calculator;
+
 class Main {
     public static void main(String[] args) {
         // *setup*
@@ -21,8 +40,8 @@ class Main {
         System.out.println(dA_dt.apply(1.0));
         System.out.println(dr_dt.apply(1.0));
 
-        // *implicit differenciation*
-        // rate the radius is decreasng when it is 1.1 m^2 if the area is decreasing at
+        // *implicit differentiation*
+        // rate the radius is decreasing when it is 1.1 m^2 if the area is decreasing at
         // a rate of -0.25 m^2/s
         System.out.println("\nImplicit differentiation - Related rates:");
         Function<Double, Double> dx = calculus.relatedRate(-0.25, Area);
@@ -48,3 +67,4 @@ class Main {
         System.out.println("% Error: " + ((appx - f.apply(15.0)) / f.apply(15.0) * 100)+"%");
     }
 }
+```
