@@ -12,7 +12,7 @@ This is a Java library for calculus. It is a work in progress.
 - [x] Sir Issac Newton's Law of Cooling
 - [x] Integration
 - [x] Linear Approximation
-- [x] Taylor Series (Coming soon)
+- [ ] Taylor Series (Coming soon)
 
 ## Usage
 
@@ -59,10 +59,10 @@ class Main {
         double integ = calculus.integrate(0, 8, Fn, 100);
         System.out.println(integ);
 
-        // Linear Aproximation
+        // Linear Approximation
         System.out.println("\nLinear Approximation");
         Function<Double,Double> f = x -> Math.pow(x, 1/4.0);
-        double appx = calculus.linearAprox(f, 16, 15);
+        double appx = calculus.linearApprox(f, 16, 15);
         System.out.println(appx);
         System.out.println(f.apply(15.0));
         System.out.println("% Error: " + ((appx - f.apply(15.0)) / f.apply(15.0) * 100)+"%");

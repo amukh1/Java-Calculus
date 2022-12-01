@@ -1,5 +1,4 @@
 import java.util.function.Function;
-
 class Calculator {
     double infinitesimal = 0.0000000001;
 
@@ -12,7 +11,7 @@ class Calculator {
         return fn;
     }
 
-    // implicit differenciation function:
+    // implicit differentiation function:
     public Function relatedRate(double independentRate, Function<Double, Double> formula) {
         Function<Double, Double> rate = r -> independentRate / (derivativeAt(formula, r));
         return rate;
@@ -39,7 +38,7 @@ class Calculator {
         return retV;
     }
 
-    public double linearAprox(Function<Double,Double> fn, double k, double u) {
+    public double linearApprox(Function<Double,Double> fn, double k, double u) {
         Function<Double,Double> appx = x-> fn.apply(k) + (derivativeAt(fn, k) * (x-k));
         return appx.apply(u);
     }
