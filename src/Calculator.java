@@ -38,4 +38,9 @@ class Calculator {
         }
         return retV;
     }
+
+    public double linearAprox(Function<Double,Double> fn, double k, double u) {
+        Function<Double,Double> appx = x-> fn.apply(k) + (derivativeAt(fn, k) * (x-k));
+        return appx.apply(u);
+    }
 }

@@ -38,5 +38,13 @@ class Main {
         Function<Double,Double> FN = x->2*x;
         double integ = calculus.integrate(0, 8, FN, 100);
         System.out.println(integ);
+
+        // Linear Aproximation
+        System.out.println("\nLinear Aproximation");
+        Function<Double,Double> f = x -> Math.pow(x, 1/4.0);
+        double appx = calculus.linearAprox(f, 16, 15);
+        System.out.println(appx);
+        System.out.println(f.apply(15.0));
+        System.out.println("% Error: " + ((appx - f.apply(15.0)) / f.apply(15.0) * 100)+"%");
     }
 }
