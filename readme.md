@@ -12,6 +12,7 @@ This is a Java library for calculus. It is a work in progress.
 - [x] Sir Issac Newton's Law of Cooling
 - [x] Integration
 - [x] Linear Approximation
+- [x] Taylor Series (Coming soon)
 
 ## Usage
 
