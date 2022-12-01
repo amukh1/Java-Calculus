@@ -35,8 +35,8 @@ class Main {
 
         // Integrals
         System.out.println("\nIntegrals");
-        Function<Double,Double> FN = x->2*x;
-        double integ = calculus.integrate(0, 8, FN, 100);
+        Function<Double,Double> Fn = x->2*x;
+        double integ = calculus.integrate(0, 8, Fn, 100);
         System.out.println(integ);
 
         // Linear Aproximation
