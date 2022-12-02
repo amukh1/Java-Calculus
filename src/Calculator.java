@@ -1,5 +1,3 @@
-import org.jetbrains.annotations.NotNull;
-
 import java.util.function.Function;
 // Programmed by amukh1#9613
 class Calculator {
@@ -10,7 +8,7 @@ class Calculator {
         return Math.round(value * scale) / scale;
     }
 
-    public double derivativeAt(@NotNull Function<Double, Double> f, double w) {
+    public double derivativeAt(Function<Double, Double> f, double w) {
         return (f.apply(w + infinitesimal) - f.apply(w)) / infinitesimal;
     }
 
@@ -70,10 +68,14 @@ class Calculator {
         return nthDerivativeAt(n, fn, a)*Math.pow(x-a, n) / factorial(n);
     }
 
-//    public Function deriveTaylorSeries(Function<Double,Double> fn, double n, double a) {
-//        Function<Double,Double> appx = x-> fn.apply(a)/factorial(0) + summation(0, n, i-> taylorPoly(fn, (int) Math.round(i), a, x));
-//        return appx;
-//    }
+    public double taylorPolyGiven(double[] fn, double n, double a, Double x) {
+        return fn[(int) Math.round(n)]*Math.pow(x-a, n) / factorial(n);
+    }
+
+    public Function deriveTaylorSeries(double[] derivs, double a) {
+        Function<Double,Double> appx = x1->derivs[0]/factorial(0) + summation(1, derivs.length, i->taylorPolyGiven(derivs, i, a, x1));
+        return appx;
+    }
 
     // Todo: add Summation
 
