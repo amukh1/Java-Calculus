@@ -15,7 +15,7 @@ This is a Java library for calculus. It is a work in progress.
 - [x] Maclaurin Series++
 - [x] Taylor Polynomials
 - [x] Taylor Series
-- [ ] Limited Taylor Series (Unknown Taylor Polynomials) (Soon!)
+- [x] Limited/Derived Taylor Series (Unknown Taylor Polynomials)
 - [ ] Maxima/Minima (Soon!)
 
 ## Usage
