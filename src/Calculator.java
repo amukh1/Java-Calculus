@@ -1,13 +1,30 @@
-import java.util.function.Function;
-class Calculator {
-    double infinitesimal = 0.0000000001;
+import org.jetbrains.annotations.NotNull;
 
-    public double derivativeAt(Function<Double, Double> f, double w) {
+import java.util.function.Function;
+// Programmed by amukh1#9613
+class Calculator {
+    double infinitesimal = 0.00001;
+
+    public double roundAvoid(double value, int places) {
+        double scale = Math.pow(10, places);
+        return Math.round(value * scale) / scale;
+    }
+
+    public double derivativeAt(@NotNull Function<Double, Double> f, double w) {
         return (f.apply(w + infinitesimal) - f.apply(w)) / infinitesimal;
     }
 
-    public Function derivative(Function<Double, Double> f) {
-        Function<Double, Double> fn = x -> (f.apply(x + infinitesimal) - f.apply(x)) / infinitesimal;
+    // ex: nthDerivativeAt(2, f, 4) = f''(4)
+    public double nthDerivativeAt(int n, Function<Double, Double> f, double w) {
+        Function <Double,Double> ff = f;
+        for(int i = 1; i <= n; i++) {
+            ff = derivative(ff);
+        }
+        return ff.apply(w);
+    }
+
+    public Function derivative(Function<Double, Double> fx) {
+        Function<Double, Double> fn = x -> ((fx.apply(x + infinitesimal) - fx.apply(x)) / infinitesimal);
         return fn;
     }
 
@@ -41,5 +58,39 @@ class Calculator {
     public double linearApprox(Function<Double,Double> fn, double k, double u) {
         Function<Double,Double> appx = x-> fn.apply(k) + (derivativeAt(fn, k) * (x-k));
         return appx.apply(u);
+    }
+
+    // Todo: add Taylor series
+    public Function taylorSeries(Function<Double,Double> fn, double n, double a) {
+        Function<Double,Double> appx = x-> fn.apply(a)/factorial(0) + summation(0, n, i-> taylorPoly(fn, (int) Math.round(i), a, x));
+        return appx;
+    }
+
+    public double taylorPoly(Function<Double,Double> fn, int n, double a, double x) {
+        return nthDerivativeAt(n, fn, a)*Math.pow(x-a, n) / factorial(n);
+    }
+
+    public Function deriveTaylorSeries(Function<Double,Double> fn, double n, double a) {
+        Function<Double,Double> appx = x-> fn.apply(a) + (derivativeAt(fn, a) * (x-a));
+        return appx;
+    }
+
+    // Todo: add Summation
+
+    public double summation(double a, double b, Function<Double,Double> fn) {
+        double retV = 0.0;
+        for (double i = a; i < b; i++) {
+            retV += fn.apply(i);
+        }
+        return retV;
+    }
+
+    public long factorial(double num) {
+        long factorial = 1;
+        for (int i = 1; i <= num; ++i) {
+            // factorial = factorial * i;
+            factorial *= i;
+        }
+        return factorial;
     }
 }

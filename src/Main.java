@@ -17,9 +17,8 @@ class Main {
         // *derivatives*
         System.out.println("\nDerivatives:");
         Function<Double, Double> dA_dt = calculus.derivative(Area);
-        Function<Double, Double> dr_dt = calculus.derivative(Radius);
         System.out.println(dA_dt.apply(1.0));
-        System.out.println(dr_dt.apply(1.0));
+        System.out.println(calculus.nthDerivativeAt(2, dA_dt, 4));
 
         // *implicit differenciation*
         // rate the radius is decreasng when it is 1.1 m^2 if the area is decreasing at
@@ -46,5 +45,10 @@ class Main {
         System.out.println(appx);
         System.out.println(f.apply(15.0));
         System.out.println("% Error: " + ((appx - f.apply(15.0)) / f.apply(15.0) * 100)+"%");
+
+        // Todo: *Taylor Series*
+        System.out.println("\nTaylor Series:");
+
+
     }
 }
