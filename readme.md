@@ -1,5 +1,5 @@
 
-# Java-Calculus - Aditya M
+# Java-Calculus - Amukh1
 
 This is a Java library for calculus. It is a work in progress.
 
