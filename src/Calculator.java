@@ -70,10 +70,10 @@ class Calculator {
         return nthDerivativeAt(n, fn, a)*Math.pow(x-a, n) / factorial(n);
     }
 
-    public Function deriveTaylorSeries(Function<Double,Double> fn, double n, double a) {
-        Function<Double,Double> appx = x-> fn.apply(a) + (derivativeAt(fn, a) * (x-a));
-        return appx;
-    }
+//    public Function deriveTaylorSeries(Function<Double,Double> fn, double n, double a) {
+//        Function<Double,Double> appx = x-> fn.apply(a)/factorial(0) + summation(0, n, i-> taylorPoly(fn, (int) Math.round(i), a, x));
+//        return appx;
+//    }
 
     // Todo: add Summation
 

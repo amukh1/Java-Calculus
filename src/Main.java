@@ -48,7 +48,9 @@ class Main {
 
         // Todo: *Taylor Series*
         System.out.println("\nTaylor Series:");
-
-
+        Function <Double,Double> sinAppx = calculus.taylorSeries(Math::sin, 5, 0);
+        System.out.println(sinAppx.apply(0.5));
+        System.out.println(Math.sin(0.5));
+        System.out.println("% Error: " + (Math.abs(sinAppx.apply(0.5) - Math.sin(0.5)) / Math.sin(0.5) * 100)+"%");
     }
 }

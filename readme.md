@@ -5,14 +5,17 @@ This is a Java library for calculus. It is a work in progress.
 <!-- Checklist with all the features -->
 
 ## Features
-<!-- How to add a checklist github copilot?? -->
 - [x] Limits
 - [x] Derivatives
 - [x] Implicit Differentiation / Related Rates
 - [x] Sir Issac Newton's Law of Cooling
 - [x] Integration
 - [x] Linear Approximation
-- [ ] Taylor Series (Coming soon)
+- [x] Maclaurin Series++
+- [x] Taylor Polynomials
+- [x] Taylor Series
+- [ ] Limited Taylor Series (Unknown Taylor Polynomials) (Soon!)
+- [ ] Maxima/Minima (Soon!)
 
 ## Usage
 
