@@ -9,7 +9,7 @@ This is a Java library for calculus. It is a work in progress.
 - [x] Limits
 - [x] Derivatives
 - [x] Implicit Differentiation / Related Rates
-- [x] Sir Issac Newton's Law of Cooling
+- [x] Newton's Law of Cooling
 - [x] Integration
 - [x] Linear Approximation
 - [x] Maclaurin Series++
